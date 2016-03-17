@@ -1,0 +1,16 @@
+[
+{
+  "modid": "NEX",
+  "name": "NEX",
+  "description": "",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["LogicTechCorp and Eleazzaar"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

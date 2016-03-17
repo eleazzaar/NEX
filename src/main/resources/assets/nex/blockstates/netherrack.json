@@ -1,0 +1,34 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "minecraft:cube_all",
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "variant": {
+      "chilled": {
+        "textures": {
+          "all": "nex:blocks/netherrack_chilled"
+        }
+      },
+      "eroded": {
+        "textures": {
+          "all": "nex:blocks/netherrack_eroded"
+        }
+      },
+      "reactive": {
+        "model": "minecraft:cube_bottom_top",
+        "textures": {
+          "bottom": "nex:blocks/netherrack_reactive",
+          "top": "nex:blocks/netherrack_reactive_top",
+          "side": "nex:blocks/netherrack_reactive_side"
+        }
+      },
+      "shadowy": {
+        "textures": {
+          "all": "nex:blocks/netherrack_shadowy"
+        }
+      }
+    }
+  }
+}

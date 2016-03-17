@@ -1,0 +1,21 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "minecraft:cube_all",
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "variant": {
+      "granite_mauve": {
+        "textures": {
+          "all": "nex:blocks/granite_mauve"
+        }
+      },
+      "granite_shadowy": {
+        "textures": {
+          "all": "nex:blocks/granite_shadowy"
+        }
+      }
+    }
+  }
+}

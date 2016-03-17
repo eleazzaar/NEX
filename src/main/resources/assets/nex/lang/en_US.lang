@@ -1,0 +1,8 @@
+itemGroup.nex=NEX
+
+tile.nex:netherrack.chilled.name=Chilled Netherrack
+tile.nex:netherrack.eroded.name=Eroded Netherrack
+tile.nex:netherrack.reactive.name=Reactive Netherrack
+tile.nex:netherrack.shadowy.name=Shadowy Netherrack
+tile.nex:stone.granite_mauve.name=Mauve Granite
+tile.nex:stone.granite_shadowy.name=Shadowy Granite
