@@ -1,11 +1,12 @@
 package nex.world.gen;
 
 import com.google.common.base.Predicate;
+import net.minecraft.block.state.pattern.BlockMatcher;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.chunk.IChunkGenerator;
 import nex.config.Constants;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.block.state.pattern.BlockHelper;
-import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
@@ -24,7 +25,7 @@ public class WorldGenManager implements IWorldGenerator
 
     private final Block ore;
 
-    public WorldGenManager(Block oreBlock, int maxHeight, float spawnFrequency, int spawnQuantity, long hash, Predicate<IBlockState> target)
+    private WorldGenManager(Block oreBlock, int maxHeight, float spawnFrequency, int spawnQuantity, long hash, Predicate<IBlockState> target)
     {
         this.oreGen = new WorldGenMinable(oreBlock.getDefaultState(), spawnQuantity, target);
         this.frequency = spawnFrequency;
@@ -33,7 +34,7 @@ public class WorldGenManager implements IWorldGenerator
         this.hash = hash;
     }
 
-    public WorldGenManager(Block oreBlock, int meta, int maxHeight, float spawnFrequency, int spawnQuantity, long hash, Predicate<IBlockState> target)
+    private WorldGenManager(Block oreBlock, int meta, int maxHeight, float spawnFrequency, int spawnQuantity, long hash, Predicate<IBlockState> target)
     {
         this.oreGen = new WorldGenMinable(oreBlock.getStateFromMeta(meta), spawnQuantity, target);
         this.frequency = spawnFrequency;
@@ -43,7 +44,7 @@ public class WorldGenManager implements IWorldGenerator
     }
 
     @Override
-    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider)
+    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
     {
         final float r = random.nextFloat();
 
@@ -89,11 +90,11 @@ public class WorldGenManager implements IWorldGenerator
 
     public static void addGen(Block oreBlock, int meta, int maxY, float spawnFrequency, int spawnQuantity, Block block)
     {
-        GameRegistry.registerWorldGenerator(new WorldGenManager(oreBlock, meta, maxY, spawnFrequency, spawnQuantity, (Constants.ORE_WEIGHT * 25214903917L) + 11L, BlockHelper.forBlock(block)), Constants.ORE_WEIGHT++);
+        GameRegistry.registerWorldGenerator(new WorldGenManager(oreBlock, meta, maxY, spawnFrequency, spawnQuantity, (Constants.ORE_WEIGHT * 25214903917L) + 11L, BlockMatcher.forBlock(block)), Constants.ORE_WEIGHT++);
     }
 
     public static void addGen(Block oreBlock, int meta, float spawnFrequency, int spawnQuantity, Block block)
     {
-        GameRegistry.registerWorldGenerator(new WorldGenManager(oreBlock, meta, spawnFrequency, spawnQuantity, (Constants.ORE_WEIGHT * 25214903917L) + 11L, BlockHelper.forBlock(block)), Constants.ORE_WEIGHT++);
+        GameRegistry.registerWorldGenerator(new WorldGenManager(oreBlock, meta, spawnFrequency, spawnQuantity, (Constants.ORE_WEIGHT * 25214903917L) + 11L, BlockMatcher.forBlock(block)), Constants.ORE_WEIGHT++);
     }
 }

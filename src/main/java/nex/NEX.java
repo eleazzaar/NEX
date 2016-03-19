@@ -16,7 +16,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = Constants.MOD_ID, name = Constants.NAME, version = Constants.VERSION, acceptedMinecraftVersions = "[1.8.9]", dependencies = "required-after:Forge@[11.15.1.1722,);")
+@Mod(modid = Constants.MOD_ID, name = Constants.NAME, version = Constants.VERSION, acceptedMinecraftVersions = "[1.9]", dependencies = "required-after:Forge@[1.9-12.16.0.1767-1.9,);")
 public class NEX
 {
     @Mod.Instance(Constants.MOD_ID)

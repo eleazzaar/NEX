@@ -3,9 +3,9 @@ package nex.world.gen;
 import com.google.common.base.Predicate;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.block.state.pattern.BlockHelper;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.MathHelper;
+import net.minecraft.block.state.pattern.BlockMatcher;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -20,10 +20,10 @@ public class WorldGenMinableMeta extends WorldGenerator
 
     public WorldGenMinableMeta(IBlockState blockState, int maxMeta, int size, Block target)
     {
-        this(blockState, maxMeta, size, BlockHelper.forBlock(target));
+        this(blockState, maxMeta, size, BlockMatcher.forBlock(target));
     }
 
-    public WorldGenMinableMeta(IBlockState blockState, int maxMeta, int size, Predicate<IBlockState> target)
+    private WorldGenMinableMeta(IBlockState blockState, int maxMeta, int size, Predicate<IBlockState> target)
     {
         this.oreBlock = blockState;
         this.blockMaxMeta = maxMeta;
@@ -79,7 +79,7 @@ public class WorldGenMinableMeta extends WorldGenerator
                                 {
                                     BlockPos blockpos1 = new BlockPos(l1, i2, j2);
 
-                                    if (worldIn.getBlockState(blockpos1).getBlock().isReplaceableOreGen(worldIn, blockpos1, this.target))
+                                    if (worldIn.getBlockState(blockpos1).getBlock().isReplaceableOreGen(worldIn.getBlockState(blockpos1), worldIn, blockpos1, this.target))
                                     {
                                         worldIn.setBlockState(blockpos1, this.oreBlock.getBlock().getStateFromMeta(blockMeta), 2);
                                     }

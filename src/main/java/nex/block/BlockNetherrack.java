@@ -1,16 +1,16 @@
 package nex.block;
 
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.util.math.BlockPos;
 import nex.init.ModBlocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.World;
 
@@ -21,7 +21,7 @@ import java.util.stream.Stream;
 
 public class BlockNetherrack extends BlockMeliora
 {
-    public static final IProperty<EnumType> VARIANT = PropertyEnum.create("variant", EnumType.class);
+    private static final IProperty<EnumType> VARIANT = PropertyEnum.create("variant", EnumType.class);
 
     public BlockNetherrack()
     {
@@ -53,9 +53,9 @@ public class BlockNetherrack extends BlockMeliora
     }
 
     @Override
-    protected BlockState createBlockState()
+    protected BlockStateContainer createBlockState()
     {
-        return new BlockState(this, VARIANT);
+        return new BlockStateContainer(this, VARIANT);
     }
 
     @Override
